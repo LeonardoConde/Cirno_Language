@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    id 'antlr'
+}
+
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    antlr "org.antlr:antlr4:4.9.2" // use ANTLR version 4
+}
+
+test {
+    useJUnitPlatform()
+}
