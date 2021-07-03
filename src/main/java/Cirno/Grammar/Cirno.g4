@@ -1,6 +1,10 @@
 grammar Cirno;
 import Tokens;
 
+inicio  // exemplo: func vazio inicio(){ ... }
+    :PROCEDIMENTO VAZIO PROCEDIMENTOPRINCIPAL INICIO_PARENTESES declaracao* FIM_PARENTESES INICIO_CHAVES blocoDeComando FIM_CHAVES
+    ;
+
 declaracao  // exemplo:inteiro : num;
     :tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL ID FIM_LINHA
     ;
@@ -13,35 +17,95 @@ declaracaoComAtribuicao // exemplo: inteiro : num := 1;
     :tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL ID ATRIBUICAO identifier=ID FIM_LINHA
     ;
 
-inicio  // exemplo: func vazio inicio(){ ... }
-    :PROCEDIMENTO VAZIO PROCEDIMENTOPRINCIPAL INICIO_PARENTESES declaracao* FIM_PARENTESES INICIO_CHAVES blocoDeComando FIM_CHAVES
+declaracaoDeVariavel
+    : (declaracao | declaracaoComAtribuicao | atribuicao)*
     ;
 
 blocoDeComando
-    :(declaracao | declaracaoComAtribuicao | atribuicao)*
+    : declaracaoDeVariavel | 'comando' | operacoes
     ;
 
-operacaoMatematica
+comando
+    : funcoes FIM_LINHA
+    ;
+
+funcoes
+    : funcaoLer
+    | funcaoEscrever
+   // | identifier=ID INICIO_PARENTESES params? FIM_PARENTESES
+    ;
+
+funcaoLer       //exemplo: leia(tipo);
+    : LEIA INICIO_PARENTESES tipoPrimitivo FIM_PARENTESES
+    ;
+funcaoEscrever  //exemplo: imprima ("");
+    : IMPRIMA INICIO_PARENTESES (tipoPrimitivo)* FIM_PARENTESES
+    ;
+
+operacoes
+    : operacaoMatematica
+    ;
+
+operacaoMatematica  //necessario Verificar se esta correto
     :operacaoMatematica operacaoAritmetica NUMERO
-    |
-    |
-    ;
-/*
-// Formas
-statement
-    : ifStatement
-    | forStatement
-    | whileStatement
-    | doWhileStatement
-    | switchStatement
+    |NUMERO
     ;
 
+ /*    Declaracoes   */
+declaracoes //tipos de declaracao
+    : declaracaoSe
+   // | declaracaoPara
+   // | declaracaoRepitaEnquanto
+   // | declaracaoEnquantoExecute
+   // | declaracaoQuandoFor
+    ;
 
-statementCondition
-    : INICIO_PARENTESES logicalOperation FIM_PARENTESES
-    ;*/
+demostracaoCondicional
+    : INICIO_PARENTESES operacacaoLogica FIM_PARENTESES
+    ;
 
-tipoPrimitivo
+operacacaoLogica
+    : INICIO_PARENTESES operacacaoLogica FIM_PARENTESES
+    | operator=operadorLogicoUnitario operacacaoLogica
+    | operacacaoLogica operator=operadorLogicoBinario operacacaoLogica
+   // | booleanExpression
+   // | relationalOperation
+    ;
+
+
+declaracaoSe // Forma se-contudo. Exemplo: se(1>2){a=1} contudo{a=2}
+    : inicioSe seEntao seContudoSe
+    ;
+inicioSe
+    : SE demostracaoCondicional
+    ;
+seEntao
+    : CONTUDO blocoDeComando
+    ;
+seContudo
+    : CONTUDO blocoDeComando FIM_LINHA
+    ;
+seContudoSe
+    : contudoSe
+    | seContudo
+    | FIM_LINHA
+    ;
+contudoSe
+    : CONTUDO declaracaoSe
+    ;
+
+
+operadorLogicoBinario
+    : E
+    | OU
+    ;
+
+operadorLogicoUnitario
+    : NAO
+    ;
+
+/*  Tipos primitivos */
+tipoPrimitivo   // variaveis primitivas
     : INTEIRO
     | INTEIRO_POSITIVO
     | INTEIRO_NEGATIVO
@@ -53,20 +117,22 @@ tipoPrimitivo
     | BOOLEANO
     ;
 
-operacaoAritmetica
+/*    Operacoes aritmeticas */
+operacaoAritmetica  //operacoes aritmeticas
     : operacaoAdicao
     | operacaoMultiplicacao
     ;
-operacaoAdicao
+operacaoAdicao      //operacao de adicao
     : SOMA
     | SUBTRACAO
     ;
-operacaoMultiplicacao
+operacaoMultiplicacao   //operacao de multiplicacao
     : MULTIPLICACAO
     | DIVISAO
     | MODULO
     ;
 
+/*     Operacoes de relacao */
 operacaoRelacao
     : operacaoIgualdade
     | operacaoComparacao
@@ -83,294 +149,5 @@ operacaoComparacao
     | MENOR
     ;
 
-//----------------------------------------------------------------------
-/*
-file
-    : procedureDeclarationBlock?                // procedimentos
-      EOF
-    ;
-
-//Funcao Inicio
-procedureDeclarationBlock:
-      procedure*
-      mainProcedure
-      ;
-
-// Declaracao de funcoes
-procedure
-    : procedureDeclaration procedureBody
-    ;
-
-procedureDeclaration
-    : PROCEDIMENTO primitiveType 'vazio' identifier=ID INICIO_PARENTESES procedureInput? FIM_PARENTESES    /*Verificar o primitiveType
-    ;
-procedureBody
-    : INICIO_CHAVES procedureBlock FIM_CHAVES
-    ;
-procedureBlock
-    : block procedureOutput?
-    ;
-procedureInput
-    : 'variableDeclaration+'
-    ;
-procedureOutput
-    : RETORNO (VAZIO | ID)     /*Verificar
-    ;
-mainProcedure
-    : PROCEDIMENTO /*primitiveType 'vazio' identifier=PROCEDIMENTOPRINCIPAL INICIO_PARENTESES procedureInput? FIM_PARENTESES procedureBody       /*Verificar o primitiveType
-    ;
-
-// Bloco de codigo com os comandos e formas
-block
-    : (variableDeclarationOrAssignment | 'command' | 'statement')*
-    ;
-
-// Declaracao de variaveis
-variableDeclarationOrAssignment
-    : ('variableDeclaration' | 'variableAssignment')
-    ;
-*/
-/***********************************************************************************************************************/
-/*
-// Comandos
-
-command
-    : function FIM_LINHA
-    | variableAssignment
-    ;
-
-// Formas
-statement
-    : ifStatement
-    | forStatement
-    | whileStatement
-    | doWhileStatement
-    | switchStatement
-    ;
-
-statementCondition
-    : INICIO_PARENTESES logicalOperation FIM_PARENTESES
-    ;
-
-// Operacoes
-relationalOperation
-    : INICIO_PARENTESES relationalOperation FIM_PARENTESES                                  #priorityRelationalOperation
-    | integerArithmeticOperation operator=relationalOperator integerArithmeticOperation     #integerRelationalOperation
-    | rationalArithmeticOperation operator=comparisonOperator rationalArithmeticOperation   #rationalRelationalOperation
-    | characterExpression operator=relationalOperator characterExpression                   #characterRelationalOperation
-    | booleanExpression                                                                     #expressionRelationalOperation
-    ;
-logicalOperation
-    : INICIO_PARENTESES logicalOperation FIM_PARENTESES                 #priorityLogicalOperation
-    | operator=unaryLogicalOperator logicalOperation                    #unaryLogicalOperation
-    | logicalOperation operator=binaryLogicalOperator logicalOperation  #binaryLogicalOperation
-    | booleanExpression                                                 #expressionLogicalOperation
-    | relationalOperation                                               #relationalLogicalOperation
-    ;
-integerArithmeticOperation
-    : INICIO_PARENTESES integerArithmeticOperation FIM_PARENTESES                           #priorityIntegerArithmeticOperation
-    | integerArithmeticOperation operator=multiplicativeOperator integerArithmeticOperation #integerMultiplicativeOperation
-    | integerArithmeticOperation operator=additiveOperator integerArithmeticOperation       #integerAdditiveOperation
-    | integerExpression                                                                     #expressionIntegerArithmeticOperation
-    ;
-rationalArithmeticOperation
-    : integerArithmeticOperation                                                                        #integerExpressionRationalArithmeticOperation
-    | INICIO_PARENTESES rationalArithmeticOperation FIM_PARENTESES                                      #priorityRationalArithmeticOperation
-    | rationalArithmeticOperation operator=multiplicativeOperator rationalArithmeticOperation   #rationalMultiplicativeOperation
-    | rationalArithmeticOperation operator=additiveOperator rationalArithmeticOperation                 #rationalAdditiveOperation
-    | rationalExpression                                                                                #rationalExpressionRationalArithmeticOperation
-    ;
-concatenationOperation
-    : INICIO_PARENTESES concatenationOperation FIM_PARENTESES       #priorityConcatenationOperation
-    | concatenationOperation 'CONCATENACAO' concatenationOperation    #recursiveConcatenationOperation
-    | characterExpression                                           #characterExpressionConcatenationOperation
-    | numericalExpression                                           #numericalExpressionConcatenationOperation
-    ;
-
-operation
-    : integerArithmeticOperation
-    | rationalArithmeticOperation
-    | logicalOperation
-    | relationalOperation
-    | concatenationOperation
-    ;
-
-// Declaracao e atribuicao de variaveis
-variable
-    : id=ID arrayDimention? (ATRIBUICAO variable)?
-    ;
 
 
-variableDeclaration
-    : identifier=ID (SEPARADOR_VARIAVEL innerId=ID)* SEPARADOR_VARIAVEL_TIPO t=type FIM_LINHA
-    ;
-
-variableDeclaration
-    : t=type SEPARADOR_DEFINICAO_VARIAVEL identifier=ID ATRIBUICAO ID FIM_LINHA
-    ;
-variableAssignment
-    : variable ATRIBUICAO operation FIM_LINHA
-    ;
-
-// Tipos de expressoes
-expression
-    : booleanExpression
-    | numericalExpression
-    | characterExpression
-    ;
-booleanExpression
-    : BOOLEANO
-    | variable
-    | function
-    ;
-numericalExpression
-    : integerExpression
-    | rationalExpression
-    ;
-integerExpression
-    : 'NATURAL_LITERAL'
-    | INTEIRO
-    | variable
-    | function
-    ;
-rationalExpression
-    : RACIONAL
-    | variable
-    | function
-    ;
-characterExpression
-    : CARACTERE
-    | TEXTO
-    | variable
-    | function
-    ;
-
-// Funcoes pre-definidas
-function
-    : readFunction
-    | writeFunction
-    | identifier=ID INICIO_PARENTESES params? FIM_PARENTESES
-    ;
-params
-    : expression (ATRIBUICAO expression)*
-    ;
-readFunction
-    : LEIA INICIO_PARENTESES FIM_PARENTESES
-    ;
-writeFunction
-    : ESCREVA INICIO_PARENTESES parameters=params? FIM_PARENTESES
-    ;
-
-// Forma se-contudo
-ifStatement
-    : ifStart ifThen ifElseIf
-    ;
-ifStart
-    : SE statementCondition
-    ;
-ifThen
-    : CONTUDO block
-    ;
-ifElse
-    : CONTUDO block FIM_LINHA
-    ;
-ifElseIf
-    : elseIf
-    | ifElse
-    | FIM_LINHA
-    ;
-elseIf
-    : CONTUDO ifStatement
-    ;
-
-// Forma encadeamento se-contudo
-switchStatement
-    : switchStart switchCases+ switchDefault? FIM_LINHA
-    ;
-switchStart
-    : QUANDO variable 'SEJA'
-    ;
-switchCases
-    : expression ('SEPARADOR_VARIAVEL' expression)* 'SEPARADOR_VARIAVEL_TIPO' block
-    ;
-switchDefault
-    : CONTUDO block
-    ;
-
-// Forma para
-forStatement
-    : forStart forInterval forStep forBlock
-    ;
-forStart
-    : PARA INICIO_PARENTESES variable
-    ;
-forInterval
-    : SEPARADOR_PARAMETRO numericalExpression 'ATE' numericalExpression
-    ;
-forStep
-    : SEPARADOR_PARAMETRO numericalExpression
-    ;
-forBlock
-    : block FIM_LINHA
-    ;
-
-// Forma enquanto
-whileStatement
-    : whileStart whileBlock
-    ;
-whileStart
-    : ENQUANTO statementCondition
-    ;
-whileBlock
-    : EXECUTE block FIM_LINHA
-    ;
-
-// Forma ate que
-doWhileStatement
-    : doWhileBlock doWhileEnd
-    ;
-doWhileBlock
-    : REPITA block
-    ;
-doWhileEnd
-    : ENQUANTO statementCondition FIM_LINHA
-    ;
-
-// Variaveis
-typeDefinitionType
-    : primitiveType
-    | typeDefinitionType arrayDimentionLiteral
-    | ID
-    ;
-
-type
-    : primitiveType
-    | type arrayDimention
-    | ID
-    ;
-
-primitiveType:INTEIRO | INTEIRO_POSITIVO | INTEIRO_NEGATIVO | RACIONAL | RACIONAL_POSITIVO | RACIONAL_NEGATIVO | CARACTERE | TEXTO | BOOLEANO;
-
-arrayDimention
-    : INICIO_CHAVES variable FIM_CHAVES    #variableArrayDimention
-    | arrayDimentionLiteral                 #literalArrayDimention
-    ;
-arrayDimentionLiteral
-    : INICIO_CHAVES INTEIRO FIM_CHAVES
-    ;
-
-// Operadores
-binaryOperator
-    : relationalOperator
-    | arithmeticOperator
-    | binaryLogicalOperator
-    ;
-
-unaryLogicalOperator
-    : NAO
-    ;
-binaryLogicalOperator
-    : E
-    | OU
-    ;
-*/

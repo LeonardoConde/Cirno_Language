@@ -15,6 +15,7 @@ RACIONAL_NEGATIVO : 'racional-' ;
 CARACTERE : 'caractere';
 TEXTO : 'texto' ;
 BOOLEANO : 'booleano' ;
+
 //tipos não-variaveis
 VAZIO : 'vazio';
 
@@ -35,7 +36,7 @@ ATRIBUICAO:':=';
 RETORNO:'retorno';
 //fuções pré-existentes
 LEIA : 'leia';
-ESCREVA : 'escreva';
+IMPRIMA : 'imprima';
 
 //operadores
 //logicos
