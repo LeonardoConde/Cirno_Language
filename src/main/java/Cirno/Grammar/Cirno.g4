@@ -43,15 +43,16 @@ funcaoEscrever  //exemplo: imprima ("");
     ;
 
 operacoes
-    : operacaoMatematica
+    : operacaoMatematicaInteiros
     ;
 
-operacaoMatematica  //necessario Verificar se esta correto
-    :operacaoMatematica operacaoAritmetica NUMERO
-    |NUMERO
+operacaoMatematicaInteiros  //necessario Verificar se esta correto
+    :operacaoMatematicaInteiros operacaoAritmetica INTEIRO
+    |INTEIRO operacaoAritmetica INTEIRO
     ;
 
  /*    Declaracoes   */
+ /*
 declaracoes //tipos de declaracao
     : declaracaoSe
    // | declaracaoPara
@@ -66,19 +67,21 @@ demostracaoCondicional
 
 operacacaoLogica
     : INICIO_PARENTESES operacacaoLogica FIM_PARENTESES
-    | operator=operadorLogicoUnitario operacacaoLogica
-    | operacacaoLogica operator=operadorLogicoBinario operacacaoLogica
+    | operator = operadorLogicoUnitario operacacaoLogica
+    | operacacaoLogica operator = operadorLogicoBinario operacacaoLogica
    // | booleanExpression
    // | relationalOperation
     ;
-
-
+*/
+/*
 declaracaoSe // Forma se-contudo. Exemplo: se(1>2){a=1} contudo{a=2}
     : inicioSe seEntao seContudoSe
     ;
+
 inicioSe
     : SE demostracaoCondicional
     ;
+
 seEntao
     : CONTUDO blocoDeComando
     ;
@@ -93,7 +96,7 @@ seContudoSe
 contudoSe
     : CONTUDO declaracaoSe
     ;
-
+*/
 
 operadorLogicoBinario
     : E
