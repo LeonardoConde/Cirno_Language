@@ -1,29 +1,26 @@
 package Cirno.Language.Variables;
 
-public class Boolean extends GenericVariable implements Variables {
-
-    Boolean(){
-        super(PrimitiveTypes.BOOLEAN);
+public class Boolean extends GenericVariable {
+    Boolean(String name, java.lang.Boolean value){
+        super(name,"Boolean",value);
     }
 
-    Boolean(String name){
-        super(PrimitiveTypes.BOOLEAN,name);
+    public java.lang.Boolean getValue(){
+        return  ((java.lang.Boolean) this.getObjectValue()).booleanValue();
     }
 
-    Boolean(Boolean value){
-        super(PrimitiveTypes.BOOLEAN,value);
+    public void setValue(java.lang.Boolean value){
+        this.setObjectValue(value);
     }
 
-    Boolean(String name,Boolean value){
-        super(PrimitiveTypes.BOOLEAN,name,value);
-    }
-
-    public void setValue(boolean value){
-        this.setValue(value);
-    }
-
-
-    public boolean getValue(){
-        return ((Boolean) this.getObjectValue()).getValue();
+    @Override
+    public boolean isTypeOf(Object value) {
+        if (value instanceof java.lang.Boolean) {
+            return true;
+        }
+        if (value instanceof Boolean) {
+            return true;
+        }
+        return false;
     }
 }

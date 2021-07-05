@@ -1,6 +1,6 @@
 lexer grammar Tokens;
 
-//procedimentos
+//PROCEDIMENTOS
 PROCEDIMENTO : 'func' ;
 PROCEDIMENTOPRINCIPAL : 'inicio' ;
 

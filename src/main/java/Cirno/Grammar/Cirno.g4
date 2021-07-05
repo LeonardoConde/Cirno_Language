@@ -14,7 +14,7 @@ atribuicao // exemplo: num := 1;
     ;
 
 declaracaoComAtribuicao // exemplo: inteiro : num := 1;
-    :tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL ATRIBUICAO identifier=ID FIM_LINHA
+    :tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL ID ATRIBUICAO identifier=(ID|VALOR) FIM_LINHA
     ;
 
 declaracaoDeVariavel
@@ -88,8 +88,8 @@ condicionalPara
     :INICIO_PARENTESES condicionalInicioPara SEPARADOR_PARAMETRO condicional SEPARADOR_PARAMETRO condicionalIncrementoPara FIM_PARENTESES
     ;
 condicionalInicioPara
-    : declaracaoComAtribuicao
-    | atribuicao
+    : tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL identifier=ID ATRIBUICAO (identifier=ID | VALOR )
+    | identifier=ID ATRIBUICAO (identifier=ID | VALOR )
     | ID
     ;
 condicionalIncrementoPara

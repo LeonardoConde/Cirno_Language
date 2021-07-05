@@ -1,5 +1,9 @@
 package Cirno.Language.Variables;
 
-public class Integer  {
+import java.util.LinkedList;
 
+public class Integer  {
+    public void a(){
+        LinkedList<String> oi;
+    }
 }

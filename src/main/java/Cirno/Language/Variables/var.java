@@ -1,13 +1,11 @@
 package Cirno.Language.Variables;
 
-public abstract class GenericVariable<Type> {
+public abstract class var<Type> {
     private final String name;
-    private final String type;
     private Type value;
 
-    GenericVariable(String name,String type, Type value){
+    var(String name, Type value){
         this.name =name;
-        this.type = type;
         this.value = value;
     }
 
@@ -15,11 +13,11 @@ public abstract class GenericVariable<Type> {
         return this.name;
     }
 
-    public Type getObjectValue(){
+    public Type getValue(){
         return this.value;
     }
 
-    public void setObjectValue(Type value){
+    public void setValue(Type value){
         this.value = value;
     }
 
