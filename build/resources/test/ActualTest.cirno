@@ -1,0 +1,4 @@
+func vazio inicio(){
+     inteiro: a;
+     a := "Vao todos para o inferno";
+}

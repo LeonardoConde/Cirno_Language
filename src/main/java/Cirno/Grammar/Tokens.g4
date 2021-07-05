@@ -25,6 +25,7 @@ SE : 'se' ;
 CONTUDO : 'contudo' ;
 QUANDO : 'quando' ;
 FINALIZE : 'finalize' ;
+FOR : 'for';
 //loops
 PARA : 'para'    ;
 ENQUANTO : 'enquanto' ;
@@ -76,14 +77,26 @@ SEPARADOR_PARAMETRO: ',' ;
 //tipo da variavel
 SEPARADOR_DEFINICAO_VARIAVEL:':';
 
+// Valor
+VALOR:
+    |DEFINICAO_INTEIRO
+    |DEFINICAO_INTEIRO_POSITIVO
+    |DEFINICAO_INTEIRO_NEGATIVO
+    |DEFINICAO_RACIONAL
+    |DEFINICAO_RACIONAL_POSITIVO
+    |DEFINICAO_RACIONAL_NEGATIVO
+    |DEFINICAO_CARACTERE
+    |DEFINICAO_TEXTO
+    |DEFINICAO_BOOLEANO
+    ;
 
 //definicao dos tipos-primitvos
 DEFINICAO_INTEIRO : ZERO+ //nunca -0
-                  | SINAL? ZERO* NAO_ZERO NUMERO*;
+                  | SINAL? NUMERO+;
 DEFINICAO_INTEIRO_POSITIVO : ZERO+ //nunca -0
-                           | POSITIVO? ZERO* NAO_ZERO NUMERO*; //nunca -0
+                           | POSITIVO? NUMERO+; //nunca -0
 DEFINICAO_INTEIRO_NEGATIVO : ZERO+
-                           | NEGATIVO? ZERO* NAO_ZERO NUMERO*;
+                           | NEGATIVO ZERO* NAO_ZERO NUMERO*;
 DEFINICAO_RACIONAL : ZERO+'.'ZERO+
                    | SINAL? ZERO* NAO_ZERO NUMERO*'.' NUMERO+
                    | SINAL? ZERO+'.'NAO_ZERO* NUMERO NAO_ZERO*;
@@ -91,8 +104,8 @@ DEFINICAO_RACIONAL_POSITIVO : ZERO+'.'ZERO+
                             | POSITIVO? ZERO* NAO_ZERO NUMERO*'.' NUMERO+
                             | POSITIVO? ZERO+'.'NAO_ZERO* NUMERO NAO_ZERO*;
 DEFINICAO_RACIONAL_NEGATIVO : ZERO'.'ZERO+
-                            | NEGATIVO? ZERO* NAO_ZERO NUMERO*'.' NUMERO+
-                            | NEGATIVO? ZERO+'.'NAO_ZERO* NUMERO NAO_ZERO*;
+                            | NEGATIVO ZERO* NAO_ZERO NUMERO*'.' NUMERO+
+                            | NEGATIVO ZERO+'.'NAO_ZERO* NUMERO NAO_ZERO*;
 DEFINICAO_CARACTERE: '\'' CARACTER '\'';
 DEFINICAO_TEXTO:'"' CARACTER*? '"';
 DEFINICAO_BOOLEANO: VERDADEIRO|FALSO;

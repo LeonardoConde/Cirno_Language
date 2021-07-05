@@ -1,0 +1,10 @@
+func vazio inicio(){
+    inteiro: x;
+    x := 10;
+    se(x>10){
+        imprima(a);
+    }
+    para(inteiro: x := 0, x<10, x++){
+        imprima(a);
+    }
+}

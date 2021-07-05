@@ -1,4 +1,5 @@
 // Generated from Cirno.g4 by ANTLR 4.9.2
+package Cirno.Grammar;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -157,6 +158,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitInicio(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitInicio(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final InicioContext inicio() throws RecognitionException {
@@ -228,6 +234,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitDeclaracao(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitDeclaracao(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclaracaoContext declaracao() throws RecognitionException {
@@ -276,6 +287,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitAtribuicao(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitAtribuicao(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -329,6 +345,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitDeclaracaoComAtribuicao(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitDeclaracaoComAtribuicao(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -393,6 +414,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitDeclaracaoDeVariavel(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitDeclaracaoDeVariavel(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -467,6 +493,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitBlocoDeComando(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitBlocoDeComando(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final BlocoDeComandoContext blocoDeComando() throws RecognitionException {
@@ -527,6 +558,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitComando(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitComando(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ComandoContext comando() throws RecognitionException {
@@ -570,6 +606,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitFuncoes(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitFuncoes(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -628,6 +669,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitFuncaoLer(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitFuncaoLer(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FuncaoLerContext funcaoLer() throws RecognitionException {
@@ -678,6 +724,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitFuncaoEscrever(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitFuncaoEscrever(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -737,6 +788,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacoes(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacoes(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final OperacoesContext operacoes() throws RecognitionException {
@@ -782,6 +838,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacaoMatematicaInteiros(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacaoMatematicaInteiros(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -861,6 +922,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperadorLogicoBinario(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperadorLogicoBinario(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final OperadorLogicoBinarioContext operadorLogicoBinario() throws RecognitionException {
@@ -907,6 +973,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperadorLogicoUnitario(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperadorLogicoUnitario(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final OperadorLogicoUnitarioContext operadorLogicoUnitario() throws RecognitionException {
@@ -951,6 +1022,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitTipoPrimitivo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitTipoPrimitivo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1002,6 +1078,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacaoAritmetica(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacaoAritmetica(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1059,6 +1140,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacaoAdicao(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacaoAdicao(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final OperacaoAdicaoContext operacaoAdicao() throws RecognitionException {
@@ -1106,6 +1192,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacaoMultiplicacao(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacaoMultiplicacao(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1157,6 +1248,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacaoRelacao(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacaoRelacao(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1217,6 +1313,11 @@ public class CirnoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacaoIgualdade(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacaoIgualdade(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final OperacaoIgualdadeContext operacaoIgualdade() throws RecognitionException {
@@ -1263,6 +1364,11 @@ public class CirnoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CirnoListener ) ((CirnoListener)listener).exitOperacaoComparacao(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CirnoVisitor ) return ((CirnoVisitor<? extends T>)visitor).visitOperacaoComparacao(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

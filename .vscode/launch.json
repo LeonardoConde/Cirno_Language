@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "antlr-debug",
+            "request": "launch",
+            "grammar": "${file}",
+            "name": "Debug Current Grammar",
+            "startRule": "inicio",
+            "input": "src\\test\\java\\HelloWorld.cirno",
+            "visualParseTree": true
+        }
+    ]
+}

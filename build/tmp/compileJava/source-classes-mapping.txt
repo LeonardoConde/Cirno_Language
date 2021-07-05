@@ -1,58 +1,109 @@
 Cirno/Language/Instructions/IO/ConsolePrint.java
  Cirno.Language.Instructions.IO.ConsolePrint
+Cirno/Grammar/CirnoBaseListener.java
+ Cirno.Grammar.CirnoBaseListener
 Cirno/Language/Instructions/Loops/PreConditionalLoop.java
  Cirno.Language.Instructions.Loops.PreConditionalLoop
-Cirno/Language/Variables/MyRational.java
- Cirno.Language.Variables.MyRational
+Cirno/Language/Models/Blocks.java
+ Cirno.Language.Models.Blocks
 Cirno/Language/Operations/Logics/AND.java
  Cirno.Language.Operations.Logics.AND
+Cirno/Language/Variables/GenericVariable.java
+ Cirno.Language.Variables.GenericVariable
 Cirno/Language/Instructions/Conditions/ConditionByExpression.java
  Cirno.Language.Instructions.Conditions.ConditionByExpression
-Cirno/Language/Variables/MyNegativeRational.java
- Cirno.Language.Variables.MyNegativeRational
-Cirno/Language/Variables/MyString.java
- Cirno.Variables.MyString
+Cirno/Language/Variables/String.java
+ Cirno.Variables.String
 Cirno/Language/Operations/Arithmetics/Multiplication.java
  Cirno.Language.Operations.Arithmetics.Multiplication
 Cirno/Language/Operations/Relationals/BiggerEqual.java
  Cirno.Language.Operations.Relationals.BiggerEqual
+Cirno/Context/Compiler.java
+ Cirno.Context.Compiler
 Cirno/Language/Operations/Relationals/Lower.java
  Cirno.Language.Operations.Relationals.Lower
 Cirno/Language/Operations/Arithmetics/Minus.java
  Cirno.Language.Operations.Arithmetics.Minus
 Cirno/Language/Operations/Relationals/Equals.java
  Cirno.Language.Operations.Relationals.Equals
-Cirno/Language/Variables/MyBoolean.java
- Cirno.Language.Variables.MyBoolean
+Cirno/Grammar/CirnoLexer.java
+ Cirno.Grammar.CirnoLexer
+Cirno/Language/Models/VariableAtribution.java
+ Cirno.Language.Models.VariableAtribution
+Cirno/Language/Variables/PositiveInteger.java
+ Cirno.Language.Variables.PositiveInteger
+Cirno/Language/Variables/Boolean.java
+ Cirno.Language.Variables.Boolean
 Cirno/Language/Operations/Relationals/NotEqual.java
  Cirno.Language.Operations.Relationals.NotEqual
-Cirno/Language/Variables/MyInteger.java
- Cirno.Language.Variables.MyInteger
-Cirno/Language/Variables/MyNegativeIntegers.java
- Cirno.Language.Variables.MyNegativeIntegers
+Cirno/Grammar/CirnoParser.java
+ Cirno.Grammar.CirnoParser
+ Cirno.Grammar.CirnoParser$AtribuicaoContext
+ Cirno.Grammar.CirnoParser$BlocoDeComandoContext
+ Cirno.Grammar.CirnoParser$ComandoContext
+ Cirno.Grammar.CirnoParser$DeclaracaoComAtribuicaoContext
+ Cirno.Grammar.CirnoParser$DeclaracaoContext
+ Cirno.Grammar.CirnoParser$DeclaracaoDeVariavelContext
+ Cirno.Grammar.CirnoParser$FuncaoEscreverContext
+ Cirno.Grammar.CirnoParser$FuncaoLerContext
+ Cirno.Grammar.CirnoParser$FuncoesContext
+ Cirno.Grammar.CirnoParser$InicioContext
+ Cirno.Grammar.CirnoParser$OperacaoAdicaoContext
+ Cirno.Grammar.CirnoParser$OperacaoAritmeticaContext
+ Cirno.Grammar.CirnoParser$OperacaoComparacaoContext
+ Cirno.Grammar.CirnoParser$OperacaoIgualdadeContext
+ Cirno.Grammar.CirnoParser$OperacaoMatematicaInteirosContext
+ Cirno.Grammar.CirnoParser$OperacaoMultiplicacaoContext
+ Cirno.Grammar.CirnoParser$OperacaoRelacaoContext
+ Cirno.Grammar.CirnoParser$OperacoesContext
+ Cirno.Grammar.CirnoParser$OperadorLogicoBinarioContext
+ Cirno.Grammar.CirnoParser$OperadorLogicoUnitarioContext
+ Cirno.Grammar.CirnoParser$TipoPrimitivoContext
+Cirno/Language/Variables/Rational.java
+ Cirno.Language.Variables.Rational
+Cirno/Language/Variables/Variables.java
+ Cirno.Language.Variables.Variables
+Cirno/Grammar/CirnoVisitor.java
+ Cirno.Grammar.CirnoVisitor
+Cirno/Grammar/CirnoBaseVisitor.java
+ Cirno.Grammar.CirnoBaseVisitor
 Cirno/Language/Instructions/Loops/PosConditionalLoop.java
  Cirno.Language.Instructions.Loops.PosConditionalLoop
+Cirno/Language/Models/VariableDeclaration.java
+ Cirno.Language.Models.VariableDeclaration
+Cirno/Language/Variables/Char.java
+ Cirno.Language.Variables.Char
+Cirno/Language/Variables/PrimitiveTypes.java
+ Cirno.Language.Variables.PrimitiveTypes
 Cirno/Language/Operations/Relationals/Bigger.java
  Cirno.Language.Operations.Relationals.Bigger
 Cirno/Language/Operations/Arithmetics/Plus.java
  Cirno.Language.Operations.Arithmetics.Plus
+Cirno/Grammar/CirnoListener.java
+ Cirno.Grammar.CirnoListener
 Cirno/Language/Instructions/Conditions/ConditionByValue.java
  Cirno.Language.Instructions.Conditions.ConditionByValue
 Cirno/Language/Instructions/Loops/VariableLoop.java
  Cirno.Language.Instructions.Loops.VariableLoop
-Cirno/Language/Variables/MyChar.java
- Cirno.Variables.MyChar
+Cirno/Language/Variables/NegativeRational.java
+ Cirno.Language.Variables.NegativeRational
+Cirno/Context/CirnoContext.java
+ Cirno.Context.CirnoContext
+Cirno/Language/Operations/Arithmetics/Mod.java
+ Cirno.Language.Operations.Arithmetics.Mod
 Cirno/Language/Operations/Arithmetics/Division.java
  Cirno.Language.Operations.Arithmetics.Division
 Cirno/Language/Operations/Logics/NOT.java
  Cirno.Language.Operations.Logics.NOT
 Cirno/Language/Instructions/IO/ConsoleRead.java
  Cirno.Language.Instructions.IO.ConsoleRead
-Cirno/Language/Variables/MyPositiveRational.java
- Cirno.Language.Variables.MyPositiveRational
-Cirno/Language/Variables/MyPositiveInteger.java
- Cirno.Language.Variables.MyPositiveInteger
+Cirno/Language/Variables/NegativeIntegers.java
+ Cirno.Language.Variables.NegativeIntegers
+Cirno/Language/Variables/PositiveRational.java
+ Cirno.Language.Variables.PositiveRational
 Cirno/Language/Operations/Logics/OR.java
  Cirno.Language.Operations.Logics.OR
 Cirno/Language/Operations/Relationals/LowerEqual.java
  Cirno.Language.Operations.Relationals.LowerEqual
+Cirno/Language/Variables/Integer.java
+ Cirno.Language.Variables.Integer

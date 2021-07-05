@@ -1,5 +1,5 @@
 // Generated from Cirno.g4 by ANTLR 4.9.2
-
+package Cirno.Grammar;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;

@@ -18,6 +18,11 @@ dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter')
 }
 
+generateGrammarSource {
+    maxHeapSize = "128m"
+    arguments += ['-package', 'Cirno.Grammar', '-visitor']
+}
+
 test {
     useJUnitPlatform()
 }
