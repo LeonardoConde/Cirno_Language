@@ -2,7 +2,11 @@ package Cirno.Language.Variables;
 
 public class Boolean extends GenericVariable {
     Boolean(String name, java.lang.Boolean value){
-        super(name,"Boolean",value);
+        super("Boolean",name,value);
+    }
+
+    Boolean(String name){
+        super("Boolean",name);
     }
 
     public java.lang.Boolean getValue(){

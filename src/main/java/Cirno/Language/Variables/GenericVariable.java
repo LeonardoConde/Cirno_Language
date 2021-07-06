@@ -5,8 +5,14 @@ public abstract class GenericVariable<Type> {
     private final String type;
     private Type value;
 
-    GenericVariable(String name,String type, Type value){
+    GenericVariable(String type,String name, Type value){
         this.name =name;
+        this.type = type;
+        this.value = value;
+    }
+
+    GenericVariable(String type, Type value){
+        this.name =null;
         this.type = type;
         this.value = value;
     }

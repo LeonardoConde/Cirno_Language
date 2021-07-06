@@ -10,11 +10,11 @@ declaracao  // exemplo:inteiro : num;
     ;
 
 atribuicao // exemplo: num := 1;
-    :identifier=ID ATRIBUICAO (identifier=ID | VALOR ) FIM_LINHA
+    :identifier=ID ATRIBUICAO (operacoes | identifier=ID | VALOR) FIM_LINHA
     ;
 
 declaracaoComAtribuicao // exemplo: inteiro : num := 1;
-    :tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL ID ATRIBUICAO identifier=(ID|VALOR) FIM_LINHA
+    :tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL ID ATRIBUICAO (operacoes | identifier=ID | VALOR) FIM_LINHA
     ;
 
 declaracaoDeVariavel
@@ -43,18 +43,22 @@ funcaoEscrever  //exemplo: imprima ("");
     ;
 
 operacoes
-    : operacaoMatematicaInteiros    #operacaoInteiro
-    | operacaoMatematicaRacional    #operacaoRacional
+    //: operacaoMatematicaInteiros    //#operacaoInteiro
+    //| operacaoMatematicaRacional    //#operacaoRacional
+    : operacoes operacaoAritmetica (ID | VALOR)
+    | (ID | VALOR)
     ;
 
+/*
 operacaoMatematicaInteiros  //necessario Verificar se esta correto
-    : operacaoMatematicaInteiros operacaoAritmetica (INTEIRO | INTEIRO_POSITIVO | INTEIRO_NEGATIVO)
-    | (INTEIRO | INTEIRO_POSITIVO | INTEIRO_NEGATIVO)
+    : operacaoMatematicaInteiros operacaoAritmetica (identifier=ID | DEFINICAO_INTEIRO | DEFINICAO_INTEIRO_POSITIVO | DEFINICAO_INTEIRO_NEGATIVO)+
+    | (identifier=ID | DEFINICAO_INTEIRO | DEFINICAO_INTEIRO_POSITIVO | DEFINICAO_INTEIRO_NEGATIVO)+
     ;
 operacaoMatematicaRacional
-    : operacaoMatematicaRacional operacaoAritmetica (RACIONAL | RACIONAL_POSITIVO | RACIONAL_NEGATIVO)
-    | (RACIONAL | RACIONAL_POSITIVO | RACIONAL_NEGATIVO)
+    : operacaoMatematicaRacional operacaoAritmetica (DEFINICAO_RACIONAL | DEFINICAO_RACIONAL_POSITIVO | DEFINICAO_RACIONAL_NEGATIVO| identifier=ID)+
+    | (DEFINICAO_RACIONAL | DEFINICAO_RACIONAL_POSITIVO | DEFINICAO_RACIONAL_NEGATIVO| identifier=ID)+
     ;
+*/
  /*    Declaracoes   */
 declaracoes //tipos de declaracao
     : declaracaoSe
@@ -88,12 +92,18 @@ condicionalPara
     :INICIO_PARENTESES condicionalInicioPara SEPARADOR_PARAMETRO condicional SEPARADOR_PARAMETRO condicionalIncrementoPara FIM_PARENTESES
     ;
 condicionalInicioPara
-    : tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL identifier=ID ATRIBUICAO (identifier=ID | VALOR )
-    | identifier=ID ATRIBUICAO (identifier=ID | VALOR )
+    : tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL atribuicaoFor
+    | atribuicaoFor
     | ID
     ;
 condicionalIncrementoPara
-    : operacoes // Verificar se está certo
+    : incrementoFor // Verificar se está certo
+    ;
+atribuicaoFor // exemplo: num := 1
+    :(tipoPrimitivo SEPARADOR_DEFINICAO_VARIAVEL)? ID (ATRIBUICAO (identifier=ID|VALOR| operacoes))?
+    ;
+incrementoFor
+    :identifier=ID ATRIBUICAO operacoes
     ;
 
 /* Declaracao Repita Enquanto*/
