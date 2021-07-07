@@ -158,6 +158,7 @@ public class CirnoContext extends CirnoBaseVisitor {
 
         Variavel nova = new Variavel("numero", a/b);
         return super.visitFuncaoEscrever(ctx);*/
+        //Variables v = new Variables("", "", r);
         return r;
     }
 

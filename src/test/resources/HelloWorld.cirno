@@ -2,5 +2,5 @@ func vazio inicio(){
     inteiro: x := 10;
     inteiro: y;
     y := 10;
-    imprima(y);
+    imprima(x+y);
 }
