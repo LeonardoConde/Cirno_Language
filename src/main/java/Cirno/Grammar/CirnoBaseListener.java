@@ -135,6 +135,18 @@ public class CirnoBaseListener implements CirnoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterParametro(CirnoParser.ParametroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParametro(CirnoParser.ParametroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterOperacoes(CirnoParser.OperacoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -147,37 +159,205 @@ public class CirnoBaseListener implements CirnoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperacaoMatematicaInteiros(CirnoParser.OperacaoMatematicaInteirosContext ctx) { }
+	@Override public void enterParametroOperacao(CirnoParser.ParametroOperacaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperacaoMatematicaInteiros(CirnoParser.OperacaoMatematicaInteirosContext ctx) { }
+	@Override public void exitParametroOperacao(CirnoParser.ParametroOperacaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperadorLogicoBinario(CirnoParser.OperadorLogicoBinarioContext ctx) { }
+	@Override public void enterDeclaracoes(CirnoParser.DeclaracoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperadorLogicoBinario(CirnoParser.OperadorLogicoBinarioContext ctx) { }
+	@Override public void exitDeclaracoes(CirnoParser.DeclaracoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperadorLogicoUnitario(CirnoParser.OperadorLogicoUnitarioContext ctx) { }
+	@Override public void enterCondicional(CirnoParser.CondicionalContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperadorLogicoUnitario(CirnoParser.OperadorLogicoUnitarioContext ctx) { }
+	@Override public void exitCondicional(CirnoParser.CondicionalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracaoSe(CirnoParser.DeclaracaoSeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracaoSe(CirnoParser.DeclaracaoSeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInicioSe(CirnoParser.InicioSeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInicioSe(CirnoParser.InicioSeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSeEntao(CirnoParser.SeEntaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSeEntao(CirnoParser.SeEntaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracaoPara(CirnoParser.DeclaracaoParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracaoPara(CirnoParser.DeclaracaoParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCondicionalPara(CirnoParser.CondicionalParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCondicionalPara(CirnoParser.CondicionalParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCondicionalInicioPara(CirnoParser.CondicionalInicioParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCondicionalInicioPara(CirnoParser.CondicionalInicioParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCondicionalIncrementoPara(CirnoParser.CondicionalIncrementoParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCondicionalIncrementoPara(CirnoParser.CondicionalIncrementoParaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAtribuicaoFor(CirnoParser.AtribuicaoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAtribuicaoFor(CirnoParser.AtribuicaoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIncrementoFor(CirnoParser.IncrementoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIncrementoFor(CirnoParser.IncrementoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracaoRepitaEnquanto(CirnoParser.DeclaracaoRepitaEnquantoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracaoRepitaEnquanto(CirnoParser.DeclaracaoRepitaEnquantoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracaoEnquantoExecute(CirnoParser.DeclaracaoEnquantoExecuteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracaoEnquantoExecute(CirnoParser.DeclaracaoEnquantoExecuteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracaoQuandoFor(CirnoParser.DeclaracaoQuandoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracaoQuandoFor(CirnoParser.DeclaracaoQuandoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInicioQuandoFor(CirnoParser.InicioQuandoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInicioQuandoFor(CirnoParser.InicioQuandoForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForFor(CirnoParser.ForForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForFor(CirnoParser.ForForContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -262,6 +442,30 @@ public class CirnoBaseListener implements CirnoListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOperacaoComparacao(CirnoParser.OperacaoComparacaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOperadorLogicoBinario(CirnoParser.OperadorLogicoBinarioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperadorLogicoBinario(CirnoParser.OperadorLogicoBinarioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOperadorLogicoUnitario(CirnoParser.OperadorLogicoUnitarioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperadorLogicoUnitario(CirnoParser.OperadorLogicoUnitarioContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

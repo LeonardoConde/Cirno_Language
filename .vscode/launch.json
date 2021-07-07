@@ -7,7 +7,7 @@
             "grammar": "${file}",
             "name": "Debug Current Grammar",
             "startRule": "inicio",
-            "input": "src\\test\\java\\HelloWorld.cirno",
+            "input": "src\\test\\resources\\HelloWorld.cirno",
             "visualParseTree": true
         }
     ]

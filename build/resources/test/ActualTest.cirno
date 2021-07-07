@@ -1,4 +1,20 @@
 func vazio inicio(){
-     inteiro: a;
-     a := "Vao todos para o inferno";
+    inteiro: x := 10;
+    x := x + 10;
+
+    para(inteiro: y := 0, y<x, y := y + 1 ){
+        imprima(y);
+    }
+    enquanto(y<10)execute{
+        imprima(x);
+    }
+    repita{
+        imprima(x);
+    }enquanto(y<10)
+
+    se(y<10){
+        imprima(x);
+    }contudo{
+        imprima(y);
+    }
 }

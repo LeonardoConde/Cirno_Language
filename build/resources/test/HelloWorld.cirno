@@ -1,3 +1,5 @@
 func vazio inicio(){
-
+    inteiro: x := 10;
+    inteiro: y := 20;
+    x + y;
 }

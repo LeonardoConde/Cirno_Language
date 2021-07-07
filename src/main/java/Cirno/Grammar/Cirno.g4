@@ -22,7 +22,7 @@ declaracaoDeVariavel
     ;
 
 blocoDeComando
-    : (declaracaoDeVariavel | operacoes | declaracoes | comando)*
+    : (declaracaoDeVariavel| operacoes FIM_LINHA | declaracoes | comando)*
     ;
 
 comando
@@ -39,26 +39,18 @@ funcaoLer       //exemplo: leia(tipo);
     : LEIA INICIO_PARENTESES VALOR FIM_PARENTESES
     ;
 funcaoEscrever  //exemplo: imprima ("");
-    : IMPRIMA INICIO_PARENTESES (ID | VALOR)* FIM_PARENTESES
+    : IMPRIMA INICIO_PARENTESES parametro FIM_PARENTESES
     ;
+
+parametro:(ID | VALOR | operacoes)*;
 
 operacoes
-    //: operacaoMatematicaInteiros    //#operacaoInteiro
-    //| operacaoMatematicaRacional    //#operacaoRacional
-    : operacoes operacaoAritmetica (ID | VALOR)
-    | (ID | VALOR)
+    : parametroOperacao operacaoAritmetica parametroOperacao
+    //| parametroOperacao
     ;
 
-/*
-operacaoMatematicaInteiros  //necessario Verificar se esta correto
-    : operacaoMatematicaInteiros operacaoAritmetica (identifier=ID | DEFINICAO_INTEIRO | DEFINICAO_INTEIRO_POSITIVO | DEFINICAO_INTEIRO_NEGATIVO)+
-    | (identifier=ID | DEFINICAO_INTEIRO | DEFINICAO_INTEIRO_POSITIVO | DEFINICAO_INTEIRO_NEGATIVO)+
-    ;
-operacaoMatematicaRacional
-    : operacaoMatematicaRacional operacaoAritmetica (DEFINICAO_RACIONAL | DEFINICAO_RACIONAL_POSITIVO | DEFINICAO_RACIONAL_NEGATIVO| identifier=ID)+
-    | (DEFINICAO_RACIONAL | DEFINICAO_RACIONAL_POSITIVO | DEFINICAO_RACIONAL_NEGATIVO| identifier=ID)+
-    ;
-*/
+parametroOperacao:(ID | VALOR);
+
  /*    Declaracoes   */
 declaracoes //tipos de declaracao
     : declaracaoSe
